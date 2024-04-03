@@ -1,0 +1,14 @@
+version: '3.9'
+
+services:
+  api:
+    build:
+      context: .
+      dockerfile: ./deploy/Dockerfile
+      target: prod
+    image: taxi_travel_time_prediction:${TAXI_TRAVEL_TIME_PREDICTION_VERSION:-latest}
+    restart: always
+    env_file:
+    - .env
+    environment:
+      TAXI_TRAVEL_TIME_PREDICTION_HOST: 0.0.0.0
