@@ -26,6 +26,7 @@ spec:
         - containerPort: 5601
           name: ui
           protocol: TCP
+
 ---
 apiVersion: v1
 kind: Service

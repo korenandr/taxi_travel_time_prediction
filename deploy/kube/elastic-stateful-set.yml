@@ -6,6 +6,7 @@ metadata:
   namespace: kube-system
 data:
   ES_JAVA_OPTS: -Xms256m -Xmx256m
+
 ---
 apiVersion: apps/v1
 kind: StatefulSet
@@ -60,3 +61,19 @@ spec:
         name: elasticsearch-logging-init
         securityContext:
           privileged: true
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: elasticsearch-logging
+  namespace: kube-system
+  labels:
+    k8s-app: elasticsearch-logging
+spec:
+  ports:
+  - port: 9200
+    protocol: TCP
+    targetPort: db
+  selector:
+    k8s-app: elasticsearch-logging
