@@ -36,6 +36,7 @@ spec:
         ports:
         - containerPort: 8000
           name: api-port
+
 ---
 apiVersion: v1
 kind: Service
@@ -71,5 +72,3 @@ spec:
             name: taxi-travel-time-prediction-app-service
             port:
               name: api-port
-
----

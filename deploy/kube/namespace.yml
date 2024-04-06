@@ -5,3 +5,7 @@ metadata:
   name: "taxi-travel-time-prediction"
 
 ---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: "monitoring"

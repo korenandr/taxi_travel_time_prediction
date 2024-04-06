@@ -149,7 +149,12 @@ docker save --output taxi_travel_time_prediction.tar taxi_travel_time_prediction
 minikube start --addons=ingress --vm=true --namespace="taxi-travel-time-prediction"
 minikube image load ./taxi_travel_time_prediction.tar
 kubectl apply -f deploy/kube/namespace.yml
-kubectl apply -f deploy/kube/app.yml
+kubectl apply -f deploy/kube/app-deployment.yml
+kubectl apply -f deploy/kube/clusterRole.yml
+kubectl apply -f deploy/kube/prometheus-server-config.yml
+kubectl apply -f deploy/kube/prometheus-deployment.yml
+kubectl apply -f deploy/kube/grafana-datasource-config.yml
+kubectl apply -f deploy/kube/grafana-deployment.yml
 ```
 
 
