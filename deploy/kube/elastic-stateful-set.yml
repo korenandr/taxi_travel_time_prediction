@@ -3,7 +3,7 @@ apiVersion: v1
 kind: ConfigMap
 metadata:
   name: es-config
-  namespace: kube-system
+  namespace: logging
 data:
   ES_JAVA_OPTS: -Xms256m -Xmx256m
 
@@ -12,7 +12,7 @@ apiVersion: apps/v1
 kind: StatefulSet
 metadata:
   name: elasticsearch-logging
-  namespace: kube-system
+  namespace: logging
   labels:
     k8s-app: elasticsearch-logging
 spec:
@@ -67,7 +67,7 @@ apiVersion: v1
 kind: Service
 metadata:
   name: elasticsearch-logging
-  namespace: kube-system
+  namespace: logging
   labels:
     k8s-app: elasticsearch-logging
 spec:

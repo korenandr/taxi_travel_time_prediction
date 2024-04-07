@@ -3,7 +3,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: logstash-deployment
-  namespace: kube-system
+  namespace: logging
 spec:
   replicas: 1
   selector:
@@ -43,7 +43,7 @@ kind: Service
 apiVersion: v1
 metadata:
   name: logstash-service
-  namespace: kube-system
+  namespace: logging
 spec:
   selector:
     app: logstash
