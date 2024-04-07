@@ -1,5 +1,6 @@
-import joblib
 import logging
+
+import joblib
 from fastapi import APIRouter
 
 from taxi_travel_time_prediction.web.api.predict.schema import RideInfo, TravelTime
@@ -7,7 +8,7 @@ from taxi_travel_time_prediction.web.api.predict.schema import RideInfo, TravelT
 router = APIRouter()
 
 
-@router.post("/predict", response_model=TravelTime)
+@router.post("/", response_model=TravelTime)
 def predict(
     ride_info: RideInfo,
 ) -> TravelTime:
