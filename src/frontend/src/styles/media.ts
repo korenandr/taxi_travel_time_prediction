@@ -20,7 +20,7 @@ export const media = (Object.keys(sizes) as Array<keyof typeof sizes>).reduce(
     acc[size] = () => `@media (min-width:${sizes[size]}px)`;
     return acc;
   },
-  {} as { [key in keyof typeof sizes]: () => string },
+  {} as { [key in keyof typeof sizes]: () => string }
 );
 
 /* Example
