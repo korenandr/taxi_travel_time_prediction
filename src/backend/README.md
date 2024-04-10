@@ -115,7 +115,7 @@ It will create needed components.
 If you haven't pushed to docker registry yet, you can build image locally.
 
 ```bash
-docker-compose -f deploy/docker-compose.yml --project-directory . build
+docker-compose -f docker-compose.yml --project-directory . build
 docker save --output taxi_travel_time_prediction.tar taxi_travel_time_prediction:latest
 ```
 

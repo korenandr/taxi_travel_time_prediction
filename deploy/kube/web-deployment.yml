@@ -1,0 +1,63 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  namespace: taxi-travel-time-prediction
+  name: taxi-travel-time-prediction-app-web
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: taxi-travel-time-prediction-app-web
+  template:
+    metadata:
+      labels:
+        app: taxi-travel-time-prediction-app-web
+    spec:
+      containers:
+      - name: app
+        image: taxi_travel_time_prediction_web:latest
+        imagePullPolicy: Never
+        resources:
+          limits:
+            memory: "200Mi"
+            cpu: "100m"
+        ports:
+        - containerPort: 80
+          name: web-api-port
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  namespace: taxi-travel-time-prediction
+  name: taxi-travel-time-prediction-app-web-service
+spec:
+  selector:
+    app: taxi-travel-time-prediction-app-web
+  ports:
+  - protocol: TCP
+    port: 80
+    targetPort: web-api-port
+    name: web-api-port
+
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: taxi-travel-time-prediction-app-web
+  namespace: taxi-travel-time-prediction
+  labels:
+    name: taxi-travel-time-prediction-app-web
+spec:
+  rules:
+  - host: taxi-travel-time-prediction-web.local
+    http:
+      paths:
+      - pathType: Prefix
+        path: "/"
+        backend:
+          service:
+            name: taxi-travel-time-prediction-app-web-service
+            port:
+              name: web-api-port
