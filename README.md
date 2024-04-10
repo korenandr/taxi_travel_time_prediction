@@ -7,7 +7,7 @@ This project was generated using fastapi_template.
 This project uses poetry. It's a modern dependency management
 tool.
 
-To run the project use this set of commands:
+To run the project use this set of commands (inside src/backend directory):
 
 ```bash
 poetry install

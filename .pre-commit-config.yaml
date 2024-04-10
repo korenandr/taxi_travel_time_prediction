@@ -59,4 +59,4 @@ repos:
     types: [python]
     pass_filenames: false
     args:
-    - "taxi_travel_time_prediction"
+    - "src/backend/taxi_travel_time_prediction"

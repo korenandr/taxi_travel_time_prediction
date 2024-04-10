@@ -5,10 +5,8 @@ from fastapi.responses import UJSONResponse
 
 from taxi_travel_time_prediction.logging import configure_logging
 from taxi_travel_time_prediction.web.api.router import api_router
-from taxi_travel_time_prediction.web.lifetime import (
-    register_shutdown_event,
-    register_startup_event,
-)
+from taxi_travel_time_prediction.web.lifetime import (register_shutdown_event,
+                                                      register_startup_event)
 
 
 def get_app() -> FastAPI:
