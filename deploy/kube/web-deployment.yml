@@ -51,7 +51,7 @@ metadata:
     name: taxi-travel-time-prediction-app-web
 spec:
   rules:
-  - host: taxi-travel-time-prediction-web.local
+  - host: taxi-travel-time-prediction.local
     http:
       paths:
       - pathType: Prefix

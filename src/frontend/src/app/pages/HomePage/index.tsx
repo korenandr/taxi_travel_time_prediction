@@ -15,7 +15,7 @@ export function HomePage() {
       return;
     }
 
-    const response = await fetch('http://taxi-travel-time-prediction-app-service/api/predict/', {
+    const response = await fetch('http://taxi-travel-time-prediction.local/api/predict/', {
       method: 'POST',
       headers: {
         'Accept': 'application/json',
