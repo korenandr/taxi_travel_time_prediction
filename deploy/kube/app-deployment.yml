@@ -16,8 +16,8 @@ spec:
     spec:
       containers:
       - name: app
-        image: taxi_travel_time_prediction:latest
-        imagePullPolicy: Never
+        image: crazydanila/taxi_travel_time_prediction:latest
+        imagePullPolicy: IfNotPresent
         readinessProbe:
           httpGet:
             path: /api/health

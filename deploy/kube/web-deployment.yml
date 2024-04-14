@@ -16,8 +16,8 @@ spec:
     spec:
       containers:
       - name: app
-        image: taxi_travel_time_prediction_web:latest
-        imagePullPolicy: Never
+        image: crazydanila/taxi_travel_time_prediction_web:latest
+        imagePullPolicy: IfNotPresent
         resources:
           limits:
             memory: "200Mi"
